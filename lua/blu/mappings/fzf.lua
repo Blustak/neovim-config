@@ -105,6 +105,27 @@ if package.loaded['blink.cmp'] then
     end,
     desc = "Complete file paths",
     mode = "i"
+    },
+    {
+      "<C-x><C-z>",
+      function()
+        fzf.files({
+          prompt = 'Files> ',
+          cwd = vim.fn.expand('%:p:h'),
+          actions = {
+            ['default'] = function(selected)
+              if selected and selected[1] then
+                local path = fzf.path.entry_to_file(selected[1]).path
+                local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+                vim.api.nvim_buf_set_text(0, row-1, col, row-1, col, {path})
+                vim.api.nvim_win_set_cursor(0, {row, col + #path})
+            end
+          end
+          }
+        })
+      end,
+      desc = "Complete file paths with fzf",
+      mode = "i"
     }
   })
 end
