@@ -96,3 +96,15 @@ wk.add({
   mode = {"v"},
   {"<leader>fw", fzf.grep_visual}
 })
+
+if package.loaded['blink.cmp'] then
+  local cmp = require("blink.cmp")
+  wk.add({
+    {"<C-x><C-f>", function()
+      cmp.show({ sources = {'path'}})
+    end,
+    desc = "Complete file paths",
+    mode = "i"
+    }
+  })
+end
