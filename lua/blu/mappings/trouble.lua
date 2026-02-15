@@ -1,3 +1,5 @@
+if not package.loaded["trouble"] then return end
+ 
 --- @module "which-key"
 local wk = require("which-key")
 
