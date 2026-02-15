@@ -1,6 +1,10 @@
+if true then return {} end
+
 local M = {
   "folke/trouble.nvim",
-  opts = {},
+  opts = {
+    auto_close = true
+  },
   cmd = "Trouble",
 }
 
