@@ -9,6 +9,9 @@ return {
   opts = {
     keymap = { preset = 'default',
     },
+    cmdline = {
+      keymap = { preset = 'inherit'},
+    },
 
     appearance = {
       nerd_font_variant = 'mono',
@@ -38,7 +41,8 @@ return {
       enabled = function() return not vim.tbl_contains({}, vim.bo.filetype) end,
     sources = {
       default = {
-        'lsp', 'path', 'snippets', 'buffer' },
+        'lsp', 'path', 'snippets', 'buffer'
+      },
     },
     fuzzy = { implementation = 'prefer_rust_with_warning' },
   },
