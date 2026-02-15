@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 require("blu.mappings.user")
+require("blu.mappings.which-key")
 require("blu.mappings.lsp")
 require("blu.mappings.oil")
 require("blu.mappings.fzf")
