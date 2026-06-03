@@ -1,8 +1,11 @@
 ---@module 'which-key'
 local wk = require("which-key")
-
 ---@module 'fzf-lua'
 local fzf = require("fzf-lua")
+
+
+---@param selected string[]
+---@param opts fzf-lua.config.Zoxide|{}
 
 wk.add({
   mode = { "n", "v", "i" },
@@ -38,7 +41,6 @@ wk.add({
         actions = {
           ["enter"] = function(selected, opts)
             fzf.actions.zoxide_cd(selected, opts)
-            require("oil").open(vim.fn.getcwd())
           end,
           ["ctrl-t"] = function(selected, opts)
             fzf.actions.zoxide_cd(selected, opts)
@@ -46,11 +48,11 @@ wk.add({
           end,
           ["ctrl-s"] = function(selected, opts)
             fzf.actions.zoxide_cd(selected, opts)
-            vim.cmd("split +Oil")
+            vim.cmd("split +Ex")
           end,
           ["ctrl-v"] = function(selected, opts)
             fzf.actions.zoxide_cd(selected, opts)
-            vim.cmd("vsplit +Oil")
+            vim.cmd("vsplit +Ex")
           end
         }
       })
@@ -65,11 +67,11 @@ wk.add({
     desc = "fuzzy search for files"
   },
   { "<leader>pf", fzf.global,     desc = "fzflua global" },
-  { "<leader>pk", fzf.builtins,   desc = "fzflua builtins" },
+  { "<leader>pk", fzf.builtin,   desc = "fzflua builtins" },
   { "<leader>pb", fzf.buffers,    desc = "fuzzy search buffers" },
   { "<leader>ps", fzf.treesitter, desc = "fuzzy search treesitter [s]ymbols" },
   { "<leader>pt", fzf.tabs,       desc = "fuzzy search tabs" },
-  { "<leader>pl", fzf.lines,      desc = "fuzzy search lines" }
+  { "<leader>pl", fzf.lines,      desc = "fuzzy search lines" },
 })
 
 

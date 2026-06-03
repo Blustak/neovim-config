@@ -1,6 +1,5 @@
 vim.treesitter.start()
-vim.opt_local.autoread = true
 vim.bo.indentexpr = "nvim_treesitter#indent()"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.wo.foldmethod = "expr"
--- vim.o.foldlevelstart = 99
+vim.o.foldlevelstart = 99

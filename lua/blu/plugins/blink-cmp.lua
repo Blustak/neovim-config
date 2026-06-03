@@ -12,6 +12,19 @@ return {
     cmdline = {
       keymap = { preset = 'inherit'},
     },
+    signature = {
+      enabled = true,
+      trigger = {
+        show_on_keyword = true,
+        enabled = true,
+        show_on_insert = true,
+        show_on_trigger_character = true
+      },
+      window = {
+        treesitter_highlighting = true,
+        show_documentation = true
+      }
+    },
 
     appearance = {
       nerd_font_variant = 'mono',
@@ -34,10 +47,11 @@ return {
                   local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                 end
             }
-          }
+          },
+          treesitter = { "lsp" }
         },
       },
-      documentation = { auto_show = false } },
+      documentation = { auto_show = false, treesitter_highlighting = true } },
       enabled = function() return not vim.tbl_contains({}, vim.bo.filetype) end,
     sources = {
       default = {

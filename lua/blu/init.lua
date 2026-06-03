@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-require('vim._extui').enable({})
+-- require('vim._extui').enable({})
 require("blu.options")
 require("lazy").setup({
 	spec = {

@@ -12,5 +12,7 @@ vim.o.wrap = true
 vim.o.linebreak = true
 vim.o.termguicolors = true
 
+vim.o.foldlevelstart = 99
+
 -- vim.cmd([[nvim_treesitter#statusline(100)]])
 

@@ -60,11 +60,8 @@ vim.lsp.enable('luals')
 
 -- [Clangd]
 vim.lsp.config['clangd'] = {
-  cmd = { 'clangd' },
-  root_markers = { '.clangd', 'compile_commands.json' },
-  filetypes = { 'c' },
+  cmd = {"clangd", "--background-index"},
 }
-
 vim.lsp.enable('clangd')
 
 -- [Zig Language server]
@@ -94,10 +91,10 @@ vim.lsp.config('texlab', {
 vim.lsp.enable('texlab')
 
 -- [Bash Language Server]
-vim.lsp.config['bashls'] = {
-  filetypes = { 'bash', 'sh', 'zsh' },
-  root_markers = { ".git", ".editorconfig", ".bashrc" }
-}
+-- vim.lsp.config['bashls'] = {
+--   filetypes = { 'bash', 'sh', 'zsh' },
+--   root_markers = { ".git", ".editorconfig", ".bashrc" }
+-- }
 
 vim.lsp.enable('bashls')
 
@@ -111,15 +108,16 @@ vim.lsp.enable('systemd_lsp')
 
 vim.lsp.enable('pyright')
 
-vim.lsp.config('marksman', {
-  filetypes = { 'markdown' },
-  cmd = { 'marksman' },
-  root_markers = { '.marksman.toml' }
-})
-vim.lsp.config['gopls'].filetypes = {'go'}
+-- vim.lsp.config('marksman', {
+--   filetypes = { 'markdown' },
+--   cmd = { 'marksman' },
+--   root_markers = { '.marksman.toml' }
+-- })
+-- vim.lsp.config['gopls'].filetypes = {'go'}
 vim.lsp.enable('gopls')
-
 vim.lsp.enable('marksman')
 vim.lsp.enable('taplo')
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('sqls')
+
+vim.lsp.enable('ts_ls')
