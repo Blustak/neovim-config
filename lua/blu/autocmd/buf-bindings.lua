@@ -1,14 +1,14 @@
 local glow_grp_id = vim.api.nvim_create_augroup("glow-binds", {})
 local autofmt_id = vim.api.nvim_create_augroup("AutoFmt", {})
-vim.api.nvim_create_autocmd('BufWritePost', {
-  group = autofmt_id,
-  pattern = "*.py",
-  desc = "Format with black",
-  callback = function()
-    vim.cmd([[!black -q <afile>]])
-    vim.cmd('edit')
-  end
-})
+-- vim.api.nvim_create_autocmd('BufWritePost', {
+--   group = autofmt_id,
+--   pattern = "*.py",
+--   desc = "Format with black",
+--   callback = function()
+--     vim.cmd([[!black -q <afile>]])
+--     vim.cmd('edit')
+--   end
+-- })
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = {"*.zig", "*.zon"},

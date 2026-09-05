@@ -104,6 +104,21 @@ vim.lsp.config['systemd_lsp'] = {
   filetypes = { 'systemd' },
 }
 
+vim.lsp.config('pyright', {
+  cmd = {"pyright-langserver", "--stdio"},
+  filetypes = { "python" },
+  root_markers = { "pyrightconfig.json", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" },
+  settings = {
+    ['python'] = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "openFilesOnly",
+          uselibraryCodeForTypes = true
+      }
+    }
+  }
+})
+
 vim.lsp.enable('systemd_lsp')
 
 vim.lsp.enable('pyright')
